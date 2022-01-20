@@ -1,0 +1,28 @@
+# workflow to deploy static site content to AWS S3 bucket
+
+name: AWS_DEPLOY
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Upload to S3 (johng.info)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_JOGI-GH_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_JOGI-GH_SECRET_ACCESS_KEY }}
+        run: aws s3 sync --region us-east-1 --acl public-read src/ s3://amazon-cloudfront-secure-static-site-s3bucketroot-wwti33tmoulb/
+
+      - name: Invalidate cache (johng.info)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_JOGI-GH_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_JOGI-GH_SECRET_ACCESS_KEY }}
+        run: aws cloudfront create-invalidation --region us-east-1 --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*'
