@@ -1,0 +1,39 @@
+/*
+ * Animation declaration for logo slide
+ */
+
+img.icon.slideup {
+    animation: slideUp 1.2s ease forwards;
+    animation-delay: 1s;
+}
+
+
+@keyframes slideUp {
+
+    from   { transform: scale(1,1)      translateY(0); opacity: 0.0; }
+        10%  { transform: scale(1,1)   translateY(4vh); opacity: 0.1;}
+        30%  { transform: scale(.9,1.1)   translateY(3vh); opacity: 0.3; }
+        40%  { transform: scale(.9,1.1)   translateY(3vh); opacity: 0.5; }
+        50%  { transform: scale(.9,1.1) translateY(3vh); opacity: 0.7; }
+        57%  { transform: scale(1.1,0.9)      translateY(8vh); opacity: 1.0; }
+        80%  { transform: scale(1,1)      translateY(0); opacity: 1.0; }
+    to { top: 22vh; opacity: 1.0; }
+    /*
+    from {
+        top: 2vh;
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    75% {
+        top: 30vh;
+        opacity: 1.0;
+    }
+
+    to {
+        top: 24vh;
+    }*/
+}
