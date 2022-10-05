@@ -262,3 +262,37 @@ footer {
             right: calc(50% - 32px);
         }
     }
+}
+
+
+@media only screen and (max-device-width: 480px) {
+
+    div#layout {
+        max-width: 350px;  
+        display: flex;
+        flex-direction: column;
+        -moz-flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    main#content {
+        max-width: 350px;
+        margin-top: 4px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        -moz-flex-direction: column;
+    }
+
+    div#logo {
+        width: 490px !important;
+    
+    }
+    
+    img.icon.slideup {
+        animation: none;
+        animation-delay: 0s;
+    }
+}
