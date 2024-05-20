@@ -138,6 +138,7 @@ img#avatar {
     height: 110px;
     width: 110px;
     margin: auto;
+    border-radius: 50%;
 }
 
 span.separator {
